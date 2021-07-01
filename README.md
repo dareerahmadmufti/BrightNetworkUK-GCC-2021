@@ -8,7 +8,7 @@ This repo is related to Google Coding Challenge, given to Bright Network Interns
 
 ## How to run:
 - Download the project
-- open set CMD/terminal address to project dictionary
+- set CMD/terminal address to project dictionary (cd PROJECT_PATH)
 - And run Command: python -m pytest
 
 ## All Test Pass - Screenshot:
