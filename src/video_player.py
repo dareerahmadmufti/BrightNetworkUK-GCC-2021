@@ -82,7 +82,7 @@ class VideoPlayer:
             if(video.flagged == None):
                 if self.video_under_process.status != video_state.Stop: #for avoiding the first time error print message from stop_video
                     self.stop_video() #stopping the current video if playing
-                    
+
                 self.video_under_process.set_video(video, video_state.Playing)
             else:
                 print("Cannot play video: Video is currently flagged (reason: "+ video.flagged +")")
@@ -376,9 +376,12 @@ class VideoPlayer:
 
         if video != None:
             if(video.flagged == None):
-
-                if(self.video_under_process.status == video_state.Playing or self.video_under_process.status == video_state.Pause):
-                    self.video_under_process.set_status(video_state.Stop)
+                
+                #if it is the same video that is playing then stop it only
+                if(self.video_under_process.video != None):
+                    if(video_id == self.video_under_process.video._video_id):
+                        if(self.video_under_process.status == video_state.Playing or self.video_under_process.status == video_state.Pause):
+                            self.video_under_process.set_status(video_state.Stop)
                 
                 video.flagged = flag_reason
                 print("Successfully flagged video:", video._title + " (reason: "+ video.flagged + ")")
