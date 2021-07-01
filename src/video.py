@@ -10,6 +10,7 @@ class Video:
         """Video constructor."""
         self._title = video_title
         self._video_id = video_id
+        self.flagged = None
         
         # Turn the tags into a tuple here so it's unmodifiable,
         # in case the caller changes the 'video_tags' they passed to us
